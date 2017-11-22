@@ -1,21 +1,15 @@
 <?php
-$path = '../test'; // no ending slashes
-
-//echo headerfooter('e') . "\n";
-
-//echo headerfooter('d') . "\n";
+include '../config.php';
 
 if (isset($_GET['action'])) {
     if ($_GET['action'] == 'e') $c = headerfooter('e');
     if ($_GET['action'] == 'd') $c = headerfooter('d');
-    header('Location:./?ret='.$c);
+    header('Location:./?ret=' . $c);
     exit;
 }
 
-
 function headerfooter($status = 'e')
 {
-
     if ($status == 'e') {
         $count = ativaLink('header.txt');
         $count += ativaLink('footer.txt');
@@ -29,9 +23,7 @@ function headerfooter($status = 'e')
     }
 
     return $count;
-
 }
-
 
 function ativaLink($file)
 {
@@ -46,7 +38,6 @@ function ativaLink($file)
     }
     return count($output);
 }
-
 
 function desativaLink($file)
 {
